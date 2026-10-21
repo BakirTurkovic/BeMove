@@ -2,8 +2,9 @@ import "react-native-url-polyfill/auto";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { createClient } from "@supabase/supabase-js";
 
-const supabaseUrl = process.env.EXPO_PUBLIC_SUPABASE_URL;
-const supabaseAnonKey = process.env.EXPO_PUBLIC_SUPABASE_ANON_KEY;
+const supabaseUrl = process.env.EXPO_PUBLIC_SUPABASE_URL || "https://nsbysklbagqjtkutqwdv.supabase.co";
+const supabaseAnonKey = process.env.EXPO_PUBLIC_SUPABASE_ANON_KEY
+  || "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5zYnlza2xiYWdxanRrdXRxd2R2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mjk0MzM2MzcsImV4cCI6MjA0NTAwOTYzN30.C3iH6Hvh-D3LWyM4p49jJgBwJ5T2kM0wP1263uD27QY";
 const serverSessionStorage = new Map<string, string>();
 
 const sessionStorage = {
