@@ -4,6 +4,27 @@ import { createClient } from "@supabase/supabase-js";
 
 const supabaseUrl = process.env.EXPO_PUBLIC_SUPABASE_URL;
 const supabaseAnonKey = process.env.EXPO_PUBLIC_SUPABASE_ANON_KEY;
+const serverSessionStorage = new Map<string, string>();
+
+const sessionStorage = {
+  getItem: (key: string) => typeof window === "undefined"
+    ? Promise.resolve(serverSessionStorage.get(key) ?? null)
+    : AsyncStorage.getItem(key),
+  setItem: (key: string, value: string) => {
+    if (typeof window === "undefined") {
+      serverSessionStorage.set(key, value);
+      return Promise.resolve();
+    }
+    return AsyncStorage.setItem(key, value);
+  },
+  removeItem: (key: string) => {
+    if (typeof window === "undefined") {
+      serverSessionStorage.delete(key);
+      return Promise.resolve();
+    }
+    return AsyncStorage.removeItem(key);
+  }
+};
 
 function isSupportedPublicKey(key: string) {
   if (key.startsWith("sb_publishable_")) {
@@ -34,7 +55,7 @@ if (!isSupportedPublicKey(supabaseAnonKey)) {
 
 export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
   auth: {
-    storage: AsyncStorage,
+    storage: sessionStorage,
     autoRefreshToken: true,
     persistSession: true,
     detectSessionInUrl: false

@@ -44,7 +44,7 @@ export default function RootLayout() {
 
   if (!authReady) {
     return (
-      <View className="flex-1 items-center justify-center bg-canvas">
+      <View className="flex-1 items-center justify-center bg-canvas" style={{ flex: 1 }}>
         <ActivityIndicator color="#FF2D55" size="large" />
       </View>
     );
@@ -54,9 +54,9 @@ export default function RootLayout() {
   if (session && pathname === "/auth") return <Redirect href="/" />;
 
   return (
-    <>
+    <View style={{ flex: 1 }}>
       <StatusBar style="dark" />
       <Stack screenOptions={{ headerShown: false, contentStyle: { backgroundColor: "#F8F9FA" } }} />
-    </>
+    </View>
   );
 }

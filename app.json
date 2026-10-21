@@ -7,6 +7,10 @@
     "orientation": "portrait",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
+    "web": {
+      "output": "static",
+      "bundler": "metro"
+    },
     "plugins": [
       "expo-router",
       [
@@ -14,7 +18,8 @@
         {
           "motionPermission": "BeMove koristi podatke o kretanju za brojanje dnevnih koraka."
         }
-      ]
+      ],
+      "expo-font"
     ],
     "experiments": {
       "typedRoutes": true
