@@ -1,7 +1,3 @@
-# BeMove
-
-Clean, white-and-red Expo fitness tracker for meals, calories, workouts, and weight progress tracking.
-
 ## Run locally
 
 1. Install Node.js and dependencies with `npm install`.
