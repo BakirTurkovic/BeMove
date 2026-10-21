@@ -1,6 +1,6 @@
 # BeMove
 
-Clean, white-and-red Expo fitness tracker for meals, calories, hybrid/MMA workouts, and weight progress toward 115 kg.
+Clean, white-and-red Expo fitness tracker for meals, calories, workouts, and weight progress tracking.
 
 ## Run locally
 
