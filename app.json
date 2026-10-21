@@ -1,0 +1,23 @@
+{
+  "expo": {
+    "name": "BeMove",
+    "slug": "bemove-fitness",
+    "scheme": "bemove",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "plugins": [
+      "expo-router",
+      [
+        "expo-sensors",
+        {
+          "motionPermission": "BeMove koristi podatke o kretanju za brojanje dnevnih koraka."
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}
